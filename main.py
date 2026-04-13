@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_ollama import ChatOllama
 
 
 
@@ -30,11 +31,12 @@ Elon Reeve Musk (pronounced / ˈ i : l ɒ n ˈ m ʌ s k /; born 28 June 1971 in 
     )
 
 
-
     llm = ChatGoogleGenerativeAI(
         model="gemini-flash-latest",  # stable, supported
         temperature=0
 )
+
+    # llm = ChatOllama(temperature=0, model="gpt-oss:20b")
 
 
     chain = summary_prompt_template | llm
